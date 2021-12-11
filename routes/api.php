@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\VendorController;
+use App\Http\Controllers\AssestAssignmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //ASSET ENDPOINTS
-Route::get('/asset', [App\Http\Controllers\AssetController::class, 'index'])->name('asset');
+Route::resource('assets', AssetController::class);
 
+// VENDORS ENDPOINTS
+Route::resource('vendors', VendorController::class);
 
-Route::get('/vendor', [App\Http\Controllers\AssetController::class, 'index'])->name('vendor');
-
-Route::get('/assetassignment', [App\Http\Controllers\AssetController::class, 'index'])->name('assetassignment');
+// ASSET-ASSIGNMENT ENDPOINT
+Route::resource('asset_assignment', AssetAssignmentController::class);
