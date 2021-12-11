@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AssetController;
-use App\Http\Controllers\VendorController;
-use App\Http\Controllers\AssestAssignmentController;
+use App\Http\Controllers\api\AssetController;
+use App\Http\Controllers\api\VendorController;
+use App\Http\Controllers\api\AssestAssignmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +22,22 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //ASSET ENDPOINTS
-Route::resource('assets', AssetController::class);
+Route::get('assets', [AssetController::class, 'index']);
+Route::get('asset/{id}', [AssetController::class, 'show']);
+Route::post('asset', [AssetController::class, 'store']);
+Route::put('asset/{id}', [AssetController::class, 'update']);
+Route::delete('asset/{id}', [AssetController::class, 'destroy']);
 
 // VENDORS ENDPOINTS
-Route::resource('vendors', VendorController::class);
+Route::get('vendors', [VendorController::class, 'index']);
+Route::get('vendor/{id}', [VendorController::class, 'show']);
+Route::post('vendor', [VendorController::class, 'store']);
+Route::put('vendor/{id}', [VendorController::class, 'update']);
+Route::delete('vendor/{id}', [VendorController::class, 'destroy']);
 
 // ASSET-ASSIGNMENT ENDPOINT
-Route::resource('asset_assignment', AssetAssignmentController::class);
+Route::get('asset_assignment', [AssetAssignmentController::class, 'index']);
+Route::get('asset_assignment/{id}', [AssetAssignmentController::class, 'show']);
+Route::post('asset_assignment', [AssetAssignmentController::class, 'store']);
+Route::put('asset_assignment/{id}', [AssetAssignmentController::class, 'update']);
+Route::delete('asset_assignment/{id}', [AssetAssignmentController::class, 'destroy']);
