@@ -30,7 +30,7 @@ class AssetController extends Controller
     {
         //create new Asset 
         $asset = new Asset;
-
+        $asset->asset_id = request->input('asset_id');
         $asset->type = request->input('type');
         $asset->description = request->input('description');
         $asset->movement = request->input('movement');
