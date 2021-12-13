@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //ASSET ENDPOINTS
-Route::get('assets', [AssetController::class, 'index']);
+Route::get('asset', [AssetController::class, 'index']);
 Route::get('asset/{id}', [AssetController::class, 'show']);
 Route::post('asset', [AssetController::class, 'store']);
 Route::put('asset/{id}', [AssetController::class, 'update']);
@@ -36,7 +36,7 @@ Route::put('vendor/{id}', [VendorController::class, 'update']);
 Route::delete('vendor/{id}', [VendorController::class, 'destroy']);
 
 // ASSET-ASSIGNMENT ENDPOINT
-Route::get('asset_assignment', [AssetAssignmentController::class, 'index']);
+Route::get('asset_assignments', [AssetAssignmentController::class, 'index']);
 Route::get('asset_assignment/{id}', [AssetAssignmentController::class, 'show']);
 Route::post('asset_assignment', [AssetAssignmentController::class, 'store']);
 Route::put('asset_assignment/{id}', [AssetAssignmentController::class, 'update']);

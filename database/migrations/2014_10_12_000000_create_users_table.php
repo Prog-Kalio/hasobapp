@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('user_id');
+            $table->increments('id');
             $table->string('firstname');
             $table->string('middlename');
             $table->string('lastname');
@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('picture_url');
             $table->string('password');
             $table->enum('is_disabled', ['Yes', 'No'])->default('No');
-            $table->timestamps()
+            $table->timestamps();
         });
     }
 
@@ -36,4 +36,5 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
+            
 }

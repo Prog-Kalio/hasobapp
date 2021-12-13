@@ -15,7 +15,7 @@ class Asset extends Model
      *  @var string 
     */
 
-    protected $primaryKey = "asset_id";
+    protected $primaryKey = "id";
     
     protected $fillable= [
         'type', 

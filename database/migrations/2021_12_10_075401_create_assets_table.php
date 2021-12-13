@@ -14,8 +14,8 @@ class CreateAssetsTable extends Migration
     public function up()
     {
         Schema::create('assets', function (Blueprint $table) {
-            $table->increments('asset_id');
-            $table->set('type', ['type1', 'type2', 'type3'])->default('type1');
+            $table->increments('id');
+            $table->string('type');
             $table->text('description');
             $table->enum('movement', ['fixed', 'movable'])->default('fixed');
             $table->string('picture_path');
