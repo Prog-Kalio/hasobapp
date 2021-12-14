@@ -24,7 +24,7 @@ class User extends Authenticatable
         'middlename',
         'lastname',
         'email',
-        'phone',
+        'phoneno',
         'picture_url',
         'is_disabled'
     ];

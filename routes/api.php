@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\api\AssetController;
 use App\Http\Controllers\api\VendorController;
 use App\Http\Controllers\api\AssetAssignmentController;
@@ -20,6 +21,17 @@ use App\Http\Controllers\api\AssetAssignmentController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+//USER ENDPOINTS
+Route::get('user', [UserController::class, 'index']); //To read all
+Route::get('user/{id}', [UserController::class, 'show']); //To read specific
+Route::post('user', [UserController::class, 'store']); //To create
+Route::put('user/{id}', [UserController::class, 'update']); //To update or edit
+Route::delete('user/{id}', [UserController::class, 'destroy']); //To delete
+// Testing: http://127.0.0.1:8000/api/user/
+// Unit Test: http://127.0.0.1:8000/api/user/1
+
 
 //ASSET ENDPOINTS
 Route::get('asset', [AssetController::class, 'index']); //To read all
