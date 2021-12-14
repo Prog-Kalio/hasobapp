@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\api\AssetController;
 use App\Http\Controllers\api\VendorController;
-use App\Http\Controllers\api\AssestAssignmentController;
+use App\Http\Controllers\api\AssetAssignmentController;
 
 /*
 |--------------------------------------------------------------------------

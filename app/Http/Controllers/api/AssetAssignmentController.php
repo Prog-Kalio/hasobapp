@@ -19,7 +19,7 @@ class AssetAssignmentController extends Controller
     {
         //To get all AssetAssignment info
         $asset_assignments = AssetAssignment::all();
-        return new AssetAssignment($asset_assignments);
+        return new AssetAssignmentResource($asset_assignments);
     }
 
     /**
@@ -54,7 +54,7 @@ class AssetAssignmentController extends Controller
     {
         //To display a specific AssetAssignment info
         $asset_assignment = AssetAssignment::findOrFail($id);
-        return new AssetAssignment($asset_assignment);
+        return new AssetAssignmentResource($asset_assignment);
     }
 
     /**
