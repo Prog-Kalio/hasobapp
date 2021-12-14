@@ -17,7 +17,9 @@ class AssetAssignmentController extends Controller
      */
     public function index()
     {
-        //
+        //To get all AssetAssignment info
+        $asset_assignments = AssetAssignment::all();
+        return new AssetAssignment($asset_assignments);
     }
 
     /**
@@ -28,7 +30,18 @@ class AssetAssignmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //To create AssetAssignment info
+        $asset_assignment = new AssetAssignment();
+
+        // Form Request
+        $asset_assignment->assignment_date = $request->input('assignment_date');
+        $asset_assignment->status = $request->input('status');
+        $asset_assignment->is_due = $request->input('is_due');
+        $asset_assignment->due_date = $request->input('due_date');
+        $asset_assignment->assigned_by = $request->input('assigned_by');
+
+        $asset_assignment->save();
+        return new AssetAssignmentResource($asset_assignment);
     }
 
     /**
@@ -39,7 +52,9 @@ class AssetAssignmentController extends Controller
      */
     public function show($id)
     {
-        //
+        //To display a specific AssetAssignment info
+        $asset_assignment = AssetAssignment::findOrFail($id);
+        return new AssetAssignment($asset_assignment);
     }
 
     /**
@@ -51,7 +66,18 @@ class AssetAssignmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //To update a given AssetAssignment info
+        $asset_assignment = AssetAssignment::findOrFail($id);
+
+        $asset_assignment->assignment_date = $request->input('assignment_date');
+        $asset_assignment->status = $request->input('status');
+        $asset_assignment->is_due = $request->input('is_due');
+        $asset_assignment->due_date = $request->input('due_date');
+        $asset_assignment->assigned_by = $request->input('assigned_by');
+
+        $asset_assignment->save();
+        return new AssetAssignmentResource($asset_assignment);
+
     }
 
     /**
@@ -62,6 +88,10 @@ class AssetAssignmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //To delete a given AssetAssignment info
+        $asset_assignment = AssetAssignment::findOrFail($id);
+        if($asset_assignment->delete()) {
+            return new AssetAssignmentResource($asset_assignment);
+        }
     }
 }

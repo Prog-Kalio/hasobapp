@@ -33,7 +33,8 @@ class AssetController extends Controller
         //To create new Asset info
 
         $asset = new Asset();
-      
+        
+        // FormRequest
         $asset->type = $request->input('type');
         $asset->description = $request->input('description');
         $asset->movement = $request->input('movement');
@@ -58,7 +59,7 @@ class AssetController extends Controller
      */
     public function show($id)
     {
-        //To find specific asset info using the asset_id
+        //To find specific asset info using the id
         $asset = Asset::findOrFail($id);
         return new AssetResource($asset);
     }

@@ -22,22 +22,30 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //ASSET ENDPOINTS
-Route::get('asset', [AssetController::class, 'index']);
-Route::get('asset/{id}', [AssetController::class, 'show']);
-Route::post('asset', [AssetController::class, 'store']);
-Route::put('asset/{id}', [AssetController::class, 'update']);
-Route::delete('asset/{id}', [AssetController::class, 'destroy']);
+Route::get('asset', [AssetController::class, 'index']); //To read all
+Route::get('asset/{id}', [AssetController::class, 'show']); //To read specific
+Route::post('asset', [AssetController::class, 'store']); //To create
+Route::put('asset/{id}', [AssetController::class, 'update']); //To update or edit
+Route::delete('asset/{id}', [AssetController::class, 'destroy']); //To delete
+// Testing: http://127.0.0.1:8000/api/asset/
+// Unit Test: http://127.0.0.1:8000/api/asset/1
+
 
 // VENDORS ENDPOINTS
-Route::get('vendors', [VendorController::class, 'index']);
-Route::get('vendor/{id}', [VendorController::class, 'show']);
-Route::post('vendor', [VendorController::class, 'store']);
-Route::put('vendor/{id}', [VendorController::class, 'update']);
-Route::delete('vendor/{id}', [VendorController::class, 'destroy']);
+Route::get('vendor', [VendorController::class, 'index']); //To read all
+Route::get('vendor/{id}', [VendorController::class, 'show']); //To read specific
+Route::post('vendor', [VendorController::class, 'store']); //To create
+Route::put('vendor/{id}', [VendorController::class, 'update']); //To update or edit
+Route::delete('vendor/{id}', [VendorController::class, 'destroy']); //To delete
+// Testing: http://127.0.0.1:8000/api/vendor/
+// Unit Test: http://127.0.0.1:8000/api/vendor/1
+
 
 // ASSET-ASSIGNMENT ENDPOINT
-Route::get('asset_assignments', [AssetAssignmentController::class, 'index']);
-Route::get('asset_assignment/{id}', [AssetAssignmentController::class, 'show']);
-Route::post('asset_assignment', [AssetAssignmentController::class, 'store']);
-Route::put('asset_assignment/{id}', [AssetAssignmentController::class, 'update']);
-Route::delete('asset_assignment/{id}', [AssetAssignmentController::class, 'destroy']);
+Route::get('asset_assignment', [AssetAssignmentController::class, 'index']); //To read all
+Route::get('asset_assignment/{id}', [AssetAssignmentController::class, 'show']); //To read specific
+Route::post('asset_assignment', [AssetAssignmentController::class, 'store']); //To create
+Route::put('asset_assignment/{id}', [AssetAssignmentController::class, 'update']); //To update or edit
+Route::delete('asset_assignment/{id}', [AssetAssignmentController::class, 'destroy']); //To delete
+// Testing: http://127.0.0.1:8000/api/asset_assignment/
+// Unit Test: http://127.0.0.1:8000/api/asset_assignment/1

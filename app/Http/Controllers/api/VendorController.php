@@ -17,7 +17,9 @@ class VendorController extends Controller
      */
     public function index()
     {
-        //
+        //To retrieve all vendors info
+        $vendors = Vendor::all();
+        return new VendorResource($vendors);
     }
 
     /**
@@ -28,7 +30,15 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //To create new Vendor info
+        $vendor = new Vendor();
+
+        // FormRequest
+        $vendor->name = $request->input('name');
+        $vendor->category = $request->input('category');
+
+        $vendor->save();
+        return new VendorResource($vendor);
     }
 
     /**
@@ -39,7 +49,9 @@ class VendorController extends Controller
      */
     public function show($id)
     {
-        //
+        //To find specific info using the id
+        $vendor = Vendor::findOrFail($id);
+        return new VendorResource($vendor);
     }
 
     /**
@@ -51,7 +63,14 @@ class VendorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //To update a given Vendor info
+        $vendor = Vendor::findOrFail($id);
+
+        $vendor->name = $request->input('name');
+        $vendor->category = $request->input('category');
+
+        $vendor->save();
+        return new VendorResource($vendor);
     }
 
     /**
@@ -62,6 +81,10 @@ class VendorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //To delete a vendor info
+        $vendor = Vendor::findOrFail($id);
+        if($vendor->delete()) {
+            return new VendorResource($vendor);
+        }
     }
 }
